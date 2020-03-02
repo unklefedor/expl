@@ -1,4 +1,4 @@
-# trezor_explorer
+# app
 
 ## Project setup
 ```
