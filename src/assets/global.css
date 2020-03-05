@@ -1,0 +1,83 @@
+@font-face {
+    font-family: "Proxima Nova";
+    src: url('./fonts/ProximaNova-Regular.eot');
+}
+
+@font-face {
+    font-family: "Proxima Nova Bold";
+    src: url('./fonts/ProximaNova-Bold.eot');
+}
+
+body {
+    font-size: 12px;
+    color: #012839;
+}
+
+table {
+    padding-top: 36px;
+    padding-left: 8px;
+}
+
+.theme--light.v-data-table thead tr th {
+    color: #012839;
+}
+
+.theme--light.v-data-table thead tr:last-child th {
+    border-bottom: none;
+}
+
+.theme--light.v-data-table tbody tr:hover:not(.v-data-table__expanded__content):not(.v-data-table__empty-wrapper) {
+    background: #fff;
+}
+
+.v-data-table table thead tr th,
+.v-data-table table tbody tr td {
+    font-size: 16px;
+    border-bottom: #eaeaea;
+}
+
+.v-data-table table tbody tr td .time_sub {
+    color: #a2a2a2;
+    font-size: 12px;
+}
+
+table thead th:first-child {
+    padding-left: 0;
+}
+
+table tbody td:first-child {
+    padding-left: 0;
+}
+
+table tbody td:last-child {
+    padding-right: 8px;
+}
+
+table thead th:last-child {
+    padding-right: 8px;
+}
+
+.v-data-footer {
+    margin-left: 8px;
+}
+
+.container {
+    padding-left: 16px;
+    padding-right: 16px;
+}
+
+.header {
+    font-size: 32px;
+    font-weight: bold;
+    margin-top: 96px;
+}
+
+.header_block {
+    background-color: #fff;
+    border: none;
+    box-shadow: none;
+}
+
+.header_block.theme--light.v-app-bar.v-toolbar.v-sheet {
+    background: #fff;
+}

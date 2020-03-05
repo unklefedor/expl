@@ -1,47 +1,51 @@
 <template>
-  <v-app>
-    <v-app-bar
-      app
-      color="primary"
-      dark
-    >
-      <div class="d-flex align-center">
-        <v-img
-          alt="Vuetify Logo"
-          class="shrink mr-2"
-          contain
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-logo-dark.png"
-          transition="scale-transition"
-          width="40"
-        />
+  <v-container>
+    <v-app>
+      <v-app-bar app class="header_block static" :absolute="true">
+        <div class="header_logo d-flex align-center">Expto</div>
 
-        <v-img
-          alt="Vuetify Name"
-          class="shrink mt-1 hidden-sm-and-down"
-          contain
-          min-width="100"
-          src="https://cdn.vuetifyjs.com/images/logos/vuetify-name-dark.png"
-          width="100"
-        />
-      </div>
+        <v-spacer></v-spacer>
 
-      <v-spacer></v-spacer>
+        <div class="header_menu">
+          <v-btn href="/blocks" target="_blank" text>
+            <span class="mr-2">Blocks</span>
+          </v-btn>
 
-      <v-btn
-        href="https://github.com/vuetifyjs/vuetify/releases/latest"
-        target="_blank"
-        text
-      >
-        <span class="mr-2">Latest Release</span>
-        <v-icon>mdi-open-in-new</v-icon>
-      </v-btn>
-    </v-app-bar>
+          <v-btn href="/wallet" target="_blank" text>
+            <span class="mr-2">Wallet</span>
+          </v-btn>
 
-    <v-content>
-      <router-view ref="child"></router-view>
-    </v-content>
-  </v-app>
+          <v-btn href="/buy_crypto" target="_blank" text>
+            <span class="mr-2">Buy crypto</span>
+          </v-btn>
+
+          <v-btn href="/help" target="_blank" text>
+            <span class="mr-2">Help</span>
+          </v-btn>
+        </div>
+      </v-app-bar>
+
+      <v-content>
+        <router-view ref="child"></router-view>
+      </v-content>
+    </v-app>
+  </v-container>
 </template>
+
+<style scoped>
+   .header_block .header_logo {
+     font-size: 24px;
+     font-weight: bold;
+   }
+
+  .header_menu .v-btn {
+    font-size: 12px;
+  }
+
+   .theme--light.v-application {
+     color: #012839;
+   }
+</style>
 
 <script>
 export default {
