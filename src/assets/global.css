@@ -72,6 +72,14 @@ table thead th:last-child {
     margin-top: 96px;
 }
 
+.theme--light.v-btn:hover::before {
+    opacity: 0;
+}
+
+.theme--light.v-btn:hover {
+    color:#029EE4;
+}
+
 .header_block {
     background-color: #fff;
     border: none;

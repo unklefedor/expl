@@ -4,7 +4,8 @@
             <div class="img_explorer"></div>
             <div class="img_explorer2"></div>
             <div class="header">Ethereum Blockchain Explorer</div>
-            <v-text-field class="search_string" :placeholder="'Search for block, transaction, address'"></v-text-field>
+            <v-text-field class="search_string" v-on:keypress="submitSearch" :placeholder="'Search for block, transaction, address'"></v-text-field>
+            <div class="powered">powered by <span>CRYPTOPAY</span></div>
         </div>
 
         <header class="header">
@@ -14,6 +15,7 @@
                 :headers="headers"
                 :items="blocks"
                 :disable-sort="true"
+                v-on:click:row="tableRowClick"
         >
             <template v-slot:item.Height="{ item }">
                 <a :href="'/block/' + item.Height + '/'">
@@ -83,12 +85,63 @@ export default {
   },
 
   methods: {
+    tableRowClick(e, v) {
+        this.$router.push('/block/'+v.item.Height+'/')
+    },
+
     async update () {
       //this.blocks = (await this.$http.getLastBlocks()).blocks
+    },
+
+    submitSearch(e) {
+        if (e.key === 'Enter') {
+            let search = e.target.value
+
+            this.$router.push('/search?s='+search)
+        }
     }
   },
 }
 </script>
+
+<style>
+    .search_block .search_string .v-input__slot {
+        margin-top: 10px;
+        margin-left: 12px;
+    }
+
+    .search_block .search_string .v-input__control {
+        background-color: #fff;
+        border-radius: 8px;
+        color: #ccc;
+        font-size: 24px;
+        height: 56px;
+        margin-top: 8px;
+    }
+
+    .search_block .v-text-field__details {
+        display: none;
+    }
+
+    .search_block .v-text-field > .v-input__control > .v-input__slot::after,
+    .search_block .v-text-field > .v-input__control > .v-input__slot::before {
+        border: none;
+    }
+
+    .search_block .primary--text .v-input__control {
+        border: 1px solid #029EE4;
+    }
+
+    .v-data-table tbody tr:hover td .time_sub {
+        color: #0176AB;
+    }
+
+    .v-data-table tbody tr:hover td {
+        background-color: #F2FAFE;
+        cursor: pointer;
+        color: #0176AB;
+    }
+</style>
 
 <style scoped>
     .search_block {
@@ -101,6 +154,25 @@ export default {
         justify-content: center;
         align-items: center;
         flex-direction: column;
+    }
+
+    .search_block .header {
+        margin-top: 0px;
+    }
+
+    .search_block .v-input {
+        flex: none;
+    }
+
+    .search_block .powered {
+        font-size: 12px;
+        color: #029EE4;
+        margin-top: 27px;
+    }
+
+    .search_block .powered span {
+        font-size: 16px;
+        font-weight: bold;
     }
 
     .search_block .search_string {
