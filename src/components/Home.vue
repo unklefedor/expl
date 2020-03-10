@@ -90,7 +90,7 @@ export default {
     },
 
     async update () {
-      //this.blocks = (await this.$http.getLastBlocks()).blocks
+      this.blocks = (await this.$http.getLastBlocks()).blocks
     },
 
     submitSearch(e) {

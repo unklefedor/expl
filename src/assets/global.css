@@ -89,3 +89,19 @@ table thead th:last-child {
 .header_block.theme--light.v-app-bar.v-toolbar.v-sheet {
     background: #fff;
 }
+
+a {
+    text-decoration: none;
+}
+
+a:hover {
+    color: #0176AB;
+}
+
+.breadcrumbs {
+    background: url('breadcrumb_back.svg') no-repeat;
+    padding-left: 24px;
+    color: #029EE4;
+    font-size: 12px;
+    margin-bottom: 8px;
+}
